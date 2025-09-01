@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Horas de México y Europa</title>
+  <script>
+    function actualizarHoras() {
+      const opciones = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      const mexico = new Date().toLocaleString('es-MX', { timeZone: 'America/Mexico_City', ...opciones });
+      const europa = new Date().toLocaleString('es-ES', { timeZone: 'Europe/Madrid', ...opciones });
+      document.getElementById('hora-mexico').textContent = mexico;
+      document.getElementById('hora-europa').textContent = europa;
+    }
+    setInterval(actualizarHoras, 1000);
+    window.onload = actualizarHoras;
+  </script>
+</head>
+<body>
+  <h1>Hora Actual</h1>
+  <p><strong>México:</strong> <span id="hora-mexico"></span></p>
+  <p><strong>Europa:</strong> <span id="hora-europa"></span></p>
+</body>
+</html>
